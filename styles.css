@@ -41,52 +41,163 @@ section {
   padding: 24px 16px;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+/* Top banner styles */
+/* This styles the banner at the very top of the page */
+.top-banner {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 14px 28px; /* More padding for better spacing */
+    border-bottom: 2px solid #FFC907;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 0;
+    transition: background 0.3s; /* Smooth background transition */
+}
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Add a subtle hover effect to the top banner */
+.top-banner:hover {
+    background: #f7fafc; /* Slightly lighter on hover */
+}
+
+/* Style for the logo image in the banner */
+.banner-logo {
+    height: 40px; /* Slightly larger logo */
+    width: auto;
+    margin-right: 16px;
+    transition: transform 0.3s;
+}
+
+/* Logo grows a bit on hover for a fun effect */
+.top-banner:hover .banner-logo {
+    transform: scale(1.08);
+}
+
+/* Style for the banner text */
+.banner-text {
+    font-family: 'Proxima Nova', Arial, sans-serif;
+    font-size: 1.6em; /* Larger for readability */
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1.5px;
+    vertical-align: middle;
+    transition: color 0.3s;
+}
+
+/* Banner text color changes slightly on hover */
+.top-banner:hover .banner-text {
+    color: #2E9DF7;
+}
+
+/* Hero Section Styles */
+/* This sets a background image for the hero section */
+.hero {
+    background-image: url('img/website photo.jpg'); /* Use the JPG image */
+    background-size: contain; /* Show the whole image, even if there are borders */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: right; /* Align the image to the right */
+    background-color: #77a8bb; /* Fallback color if image doesn't fill the space */
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+    /* No blending or coloring effects on the image */
+}
+
+/* Hero content styles */
+.hero-content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 32px 28px; /* More padding for readability */
+    color: white;
+    text-align: left;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08); /* Subtle shadow for contrast */
+}
+
+/* Subtle shadow on hover for hero content */
+.hero-content:hover {
+    box-shadow: 0 6px 32px rgba(0,0,0,0.13);
 }
 
 /* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
+.hero h1,
+.hero-heading {
+  font-size: 2.8em; /* Larger for readability */
   font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  letter-spacing: 1.2px;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  line-height: 1.15;
+  transition: color 0.3s;
+}
+
+/* Headline color changes slightly on hover */
+.hero-content:hover .hero-heading {
+  color: #FFC907;
 }
 
 /* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
+.hero p,
+.hero-subheading {
+  font-size: 1.25em;
   margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.13);
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  transition: color 0.3s;
+}
+
+/* Subheadline color changes slightly on hover */
+.hero-content:hover .hero-subheading {
+  color: #FFD84D;
+}
+
+/* Ripple divider styles */
+/* This puts the ripple at the bottom of the hero section */
+.ripple-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none; /* Makes sure it doesn't block clicks */
+    z-index: 2; /* Keep it above the background but below content */
+}
+
+/* Ripple divider between text and photo (top ripple) */
+.ripple-divider-top {
+    position: static; /* Keep it in the normal flow, under the text */
+    margin-top: 24px; /* Space above the ripple */
+    margin-bottom: 0; /* No space below */
+    width: 100%;
+    z-index: 2;
+}
+
+/* Make sure the hero section is positioned relative for the ripple */
+.hero {
+    position: relative; /* Needed for absolute positioning of ripple */
+    overflow: hidden; /* Hide anything outside the hero section */
 }
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
+  background-color: #003368; /* Dark blue background */
+  color: #fff; /* White text for the whole story section */
   text-align: center;
   padding: 30px 20px;
 }
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #77a8bb; /* Primary blue */
   margin-top: 0;
   font-weight: bold;
 }
@@ -99,6 +210,29 @@ h2 {
   padding: 30px 20px;
 }
 
+/* Call-to-Action Box Styles */
+/* This styles the box that holds the CTA text and button */
+.cta-box {
+    background-color: #fff7e1; /* Light yellow box */
+    padding: 20px 24px; /* Space inside the box */
+    border-radius: 8px; /* Rounded corners */
+    margin: 32px auto 0 auto; /* Center horizontally with auto margins */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Soft shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content inside the box */
+    max-width: 320px; /* Limit box width for neatness */
+}
+
+/* Style for the text inside the CTA box */
+.cta-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 12px; /* Space below the text */
+    text-align: center; /* Center the text */
+}
+
 /* Style the impact story image */
 .impact-image {
   width: 100%;
@@ -108,32 +242,87 @@ h2 {
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
 }
 
-/* Donate Button Styles */
+/* Style for the Donate Now button */
+/* This makes the button yellow, rounded, and adds a ripple effect on hover */
 .donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
+    display: inline-block; /* Makes the link look like a button */
+    background-color: #FFC907; /* Bright yellow color */
+    color: #222; /* Dark text for contrast */
+    padding: 14px 32px; /* More space inside the button */
+    margin: 0;
+    border: none;
+    border-radius: 30px; /* More rounded corners */
+    font-size: 1.15em; /* Slightly bigger text */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative; /* Needed for ripple effect */
+    overflow: hidden;   /* Hide ripple outside the button */
+    box-shadow: 0 4px 16px rgba(46,157,247,0.08); /* Soft shadow */
+    transition: background 0.2s, box-shadow 0.2s;
+    text-align: center;
+    outline: none;
 }
 
-/* Change button color when hovered */
+/* Ripple effect on hover using a pseudo-element */
+.donate-button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5); /* White ripple */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+}
+
+/* When hovering, show the ripple effect */
+.donate-button:hover::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+
+/* Optional: Button hover color and shadow for feedback */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+    background-color: #FFD84D; /* Lighter yellow on hover */
+    box-shadow: 0 6px 24px rgba(46,157,247,0.13);
 }
 
 /* Add some spacing between sections */
 section {
   margin-bottom: 20px;
+}
+
+/* Use Proxima Nova for the hero heading and subheading */
+.hero-heading {
+    font-family: 'Proxima Nova', Arial, sans-serif;
+}
+
+.hero-subheading {
+    font-family: 'Proxima Nova', Arial, sans-serif;
+}
+
+/* Use Avenir for the CTA box and button */
+.cta-box,
+.cta-box * {
+    font-family: 'Avenir', Arial, sans-serif;
+}
+
+/* Impact Story Section Styles */
+.impact-story {
+  background-color: #FFF7E1; /* Light yellow background */
+}
+
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* 
@@ -177,6 +366,28 @@ section {
     width: 90%;    /* Make image take up most of the width */
     max-width: 220px;
   }
+
+  /* Responsive: Make hero section taller on small screens so the image fits */
+  /* This helps keep the whole image visible for students learning CSS */
+  .hero {
+    min-height: 300px; /* Slightly shorter for small screens */
+    height: 60vw;      /* Make hero taller based on screen width */
+    background-size: contain; /* Always show the whole image */
+  }
+
+  /* Responsive styles for mobile (default) */
+  .hero-content {
+    width: 90%;
+    left: 5%;
+    padding: 16px 8px;
+    font-size: 1em;
+  }
+
+  .cta-box {
+    width: 90%;
+    max-width: 320px;
+    font-size: 1em;
+  }
 }
 
 /* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
@@ -194,5 +405,27 @@ section {
 
   .impact-image {
     width: 300px;
+  }
+
+  .hero-content {
+    width: 50%;
+    left: 0;
+    padding: 32px 28px;
+    font-size: 1.1em;
+  }
+
+  .cta-box {
+    width: 320px;
+    font-size: 1.1em;
+  }
+
+  .hero h1,
+  .hero-heading {
+    font-size: 2.8em;
+  }
+
+  .hero p,
+  .hero-subheading {
+    font-size: 1.25em;
   }
 }
